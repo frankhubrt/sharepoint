@@ -1,0 +1,279 @@
+/* Global Reset */
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Main Container */
+.container {
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.header .title {
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  background-color: #00a1f1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.header .document {
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Content Section */
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.content img {
+  height: 80px;
+  width: auto;
+  margin-top: 30px;
+}
+
+.content p {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+.content .file-info {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Download Button */
+.download-button {
+  width: 200px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #00a1f1;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.download-button:hover {
+  background-color: #008ac9;
+}
+
+.download-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #00a1f1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header .document {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .download-button {
+    width: 80%;
+  }
+}
+
+/* Overlay (Background Blur Effect) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark Overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-open {
+  opacity: 1;
+}
+
+/* Modal Window */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  width: 100%;
+  max-width: 500px;
+}
+
+.modal-open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-close {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Box */
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Title */
+.modal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  font-size: 14px;
+}
+
+.input-field:focus {
+  border-color: #00a1f1;
+  outline: 2px solid #00a1f1;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00a1f1;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #008ac9;
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px #00a1f1;
+}
+
+/* Error Message */
+.error-message {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: red;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-box {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+}
